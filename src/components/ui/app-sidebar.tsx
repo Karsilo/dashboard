@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Home, Settings, Store, Brain } from "lucide-react"
+import { BookOpen, Home, Settings, Store, Brain, FileDown } from "lucide-react"
 
 import {
     Sidebar,
@@ -27,6 +27,7 @@ const items = [
 
 const toolItems = [
     { title: "Bibliography Creator", url: "/bibliography-creator", icon: BookOpen },
+    { title: "File Compressor", url: "/file-compressor", icon: FileDown },
 ]
 
 const footerItems = [
