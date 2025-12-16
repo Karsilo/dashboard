@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/layout";
-import Page from "@/components/main/dashboard/Page";
+import Page from "@/components/main/application/dashboard/Page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "@/lib/firebase/config"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -19,7 +19,7 @@ const FirebaseProvider: React.FC<Props> = ({ children }) => {
     const router = useRouter();
     const { status } = useSession();
 
-    const [showDialog, setShowDialog] = useState(false);
+    const showDialog = status === "unauthenticated";
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async () => {
@@ -33,13 +33,6 @@ const FirebaseProvider: React.FC<Props> = ({ children }) => {
         })
         return unsubscribe
     }, [router])
-
-
-    useEffect(() => {
-        if (status === "unauthenticated") {
-            setShowDialog(true);
-        }
-    }, [status])
 
     const handleReLogin = async () => {
         await signOut("/login");

@@ -164,7 +164,7 @@ const OnboardingForm = () => {
                                     id="organisation"
                                     value={orgName}
                                     onChange={(e) => setOrgName(e.target.value)}
-                                    placeholder="Salkaro Inc."
+                                    placeholder="Karsilo Inc."
                                 />
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/layout";
-import Page from "@/components/main/bibliography-creator/Page";
+import Page from "@/components/main/tools/bibliography-creator/Page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

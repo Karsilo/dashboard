@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, BookText, Home, Settings, Store } from "lucide-react"
+import { BookOpen, Home, Settings, Store, Brain } from "lucide-react"
 
 import {
     Sidebar,
@@ -22,6 +22,7 @@ import { useOrganisation } from "@/hooks/useOrganisation";
 // Menu items
 const items = [
     { title: "Dashboard", url: "/dashboard", icon: Home },
+    { title: "Practice Questions", url: "/practice-questions", icon: Brain },
 ]
 
 const toolItems = [
@@ -45,7 +46,7 @@ export function AppSidebar() {
                     <SidebarMenuItem>
                         <SidebarMenuButton
                             asChild
-                            className="data-[slot=sidebar-menu-button]:!p-1.5"
+                            className="data-[slot=sidebar-menu-button]:p-1.5!"
                         >
                             <a href="#">
                                 <Store className="h-5 w-5" />
@@ -81,7 +82,7 @@ export function AppSidebar() {
                             {toolItems.map(item => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url} className="flex items-center space-x-2">
+                                        <a href={`/tools/${item.url}`} className="flex items-center space-x-2">
                                             <item.icon />
                                             <span>{item.title}</span>
                                         </a>

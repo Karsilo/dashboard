@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
-import { BookOpen, LucideProps, SearchIcon, Settings, Store, UserRound, Wallet } from 'lucide-react';
+import { BookOpen, Brain, Home, LucideProps, SearchIcon, Settings, Store, UserRound, Wallet } from 'lucide-react';
 
 // Local Imports
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './command';
@@ -45,6 +45,20 @@ const OrganisationSearch: React.FC = () => {
     useEffect(() => {
         // Start with base items
         const baseItems: IItem[] = [
+            {
+                title: "Dashboard",
+                description: "Overview on your learning",
+                type: "page",
+                link: "/dashboard",
+                icon: Home,
+            }, 
+            {
+                title: "Practice Questions",
+                description: "Download questions and answers on subjects",
+                type: "page",
+                link: "/practice-questions",
+                icon: Brain,
+            },
             {
                 title: "Settings",
                 description: "Customize organisation data and add members",

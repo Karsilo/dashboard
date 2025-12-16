@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../ui/tabs';
 import Overview from './Overview';
 import Organisation from './Organisation';
 import Billing from './Billing';
-import { levelThreeAccess, levelTwoAccess } from '@/utils/constants';
+import { levelThreeAccess } from '@/utils/constants';
 import { useSession } from 'next-auth/react';
 
 export default function HashTabs() {
@@ -15,7 +15,6 @@ export default function HashTabs() {
     const pathname = usePathname();
     const { data: session } = useSession();
     const [value, setValue] = useState<string>('overview');
-    const hasLevelTwoAccess = levelTwoAccess.includes(session?.user.organisation?.role as string);
     const hasLevelThreeAccess = levelThreeAccess.includes(session?.user.organisation?.role as string);
 
 
@@ -67,7 +66,7 @@ export default function HashTabs() {
 
 
     return (
-        <Tabs value={value} onValueChange={updateHash}>
+        <Tabs value={value} onValueChange={updateHash} className='mt-2'>
             <TabsList>
                 {tabs.map(tab => (
                     <TabsTrigger key={tab.value} value={tab.value}>

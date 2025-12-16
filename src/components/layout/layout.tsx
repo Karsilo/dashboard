@@ -3,22 +3,25 @@
 // Local Imports
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import { SiteHeader } from "@/components/ui/site-header";
+import FirebaseProvider from "../firebase-provider";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 // External Imports
 import { usePathname } from "next/navigation";
-import FirebaseProvider from "../firebase-provider";
 
 export default function Layout({ className, children }: { className?: string, children: React.ReactNode }) {
     const pathname = usePathname();
     const title =
-        pathname === "/"
+        pathname === "/" || pathname === "/dashboard"
             ? "Dashboard"
             : pathname
-                .slice(1)
+                .split("/")
+                .filter(Boolean)
+                .pop()!
                 .split("-")
                 .map(w => w[0]?.toUpperCase() + w.slice(1))
                 .join(" ");
+
     return (
         <FirebaseProvider>
             <SidebarProvider>

@@ -1,6 +1,6 @@
 "use client"
 
-import NoContent from "../../ui/no-content"
+import NoContent from "@/components/ui/no-content"
 
 
 const Page = () => {

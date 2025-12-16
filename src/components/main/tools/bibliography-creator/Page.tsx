@@ -5,7 +5,9 @@ import { Citation } from "@/types/citation";
 import CitationDialog from "./CitationDialog";
 import CitationList from "./CitationList";
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { Plus, Copy } from "lucide-react";
+import { toast } from "sonner";
+import { formatCitation } from "@/utils/citation-formatters";
 
 const STORAGE_KEY = "bibliography-citations";
 
@@ -58,6 +60,18 @@ const Page = () => {
         }
     };
 
+    const handleCopyAll = () => {
+        const allCitations = citations
+            .map((citation) => {
+                const formatted = formatCitation(citation, citation.style);
+                return formatted.replace(/<em>/g, "").replace(/<\/em>/g, "");
+            })
+            .join("\n\n");
+
+        navigator.clipboard.writeText(allCitations);
+        toast.success(`Copied ${citations.length} ${citations.length === 1 ? 'citation' : 'citations'} to clipboard!`);
+    };
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
@@ -66,10 +80,18 @@ const Page = () => {
                         Create professional citations in multiple formats
                     </p>
                 </div>
-                <Button onClick={() => setIsDialogOpen(true)} size="lg">
-                    <Plus className="mr-2 h-5 w-5" />
-                    Add New Citation
-                </Button>
+                <div className="flex gap-2">
+                    {citations.length > 0 && (
+                        <Button onClick={handleCopyAll} size="lg" variant="outline">
+                            <Copy className="mr-2 h-5 w-5" />
+                            Copy All
+                        </Button>
+                    )}
+                    <Button onClick={() => setIsDialogOpen(true)} size="lg">
+                        <Plus className="mr-2 h-5 w-5" />
+                        Add New Citation
+                    </Button>
+                </div>
             </div>
 
             <CitationList
