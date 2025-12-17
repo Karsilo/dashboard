@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Home, Settings, Store, Brain, FileDown } from "lucide-react"
+import { BookOpen, Home, Settings, Store, Brain, FileDown, GraduationCap } from "lucide-react"
 
 import {
     Sidebar,
@@ -22,6 +22,7 @@ import { useOrganisation } from "@/hooks/useOrganisation";
 // Menu items
 const items = [
     { title: "Dashboard", url: "/dashboard", icon: Home },
+    { title: "Courses", url: "/courses", icon: GraduationCap },
     { title: "Practice Questions", url: "/practice-questions", icon: Brain },
 ]
 

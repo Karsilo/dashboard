@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
-import { BookOpen, Brain, Home, LucideProps, SearchIcon, Settings, Store, UserRound, Wallet } from 'lucide-react';
+import { BookOpen, Brain, FileDown, GraduationCap, Home, LucideProps, SearchIcon, Settings, Store, UserRound, Wallet } from 'lucide-react';
 
 // Local Imports
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './command';
@@ -51,13 +51,27 @@ const OrganisationSearch: React.FC = () => {
                 type: "page",
                 link: "/dashboard",
                 icon: Home,
-            }, 
+            },
+            {
+                title: "Courses",
+                description: "Discover indepth, easy to follow courses",
+                type: "page",
+                link: "/courses",
+                icon: GraduationCap,
+            },
             {
                 title: "Practice Questions",
                 description: "Download questions and answers on subjects",
                 type: "page",
                 link: "/practice-questions",
                 icon: Brain,
+            },
+            {
+                title: "File Compressor",
+                description: "Upload and compress files (png, jpg, ...)",
+                type: "page",
+                link: "/file-compressor",
+                icon: FileDown,
             },
             {
                 title: "Settings",
