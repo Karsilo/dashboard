@@ -1,10 +1,10 @@
 import Layout from "@/components/layout/layout";
-import Page from "@/components/main/application/dashboard/Page";
+import Page from "@/components/main/app/dashboard/Page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Salkaro | Sensors",
-    description: "Salkaro sensors dashboard",
+    title: "Karsilo | Dashboard",
+    description: "Karsilo dashboard",
     robots: {
         index: false,
         follow: false,
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default function Sensors() {
+export default function Dashboard() {
     return (
         <Layout>
             <Page />

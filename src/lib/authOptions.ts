@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
                 sameSite: "lax",
                 path: "/",
                 secure: isProd,
-                domain: isProd ? ".appkarsilo.netlify.app" : undefined,
+                domain: isProd ? ".app.karsilo.com" : undefined,
             },
         },
     },

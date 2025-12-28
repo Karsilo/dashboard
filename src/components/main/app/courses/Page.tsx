@@ -7,7 +7,7 @@ import { subjects } from "@/data/courses";
 
 export default function Page() {
     const handleCreateUrl = (subdomain: string) => {
-        const rootDomain = process.env.NEXT_PUBLIC_ROOT || "appkarsilo.vercel.app";
+        const rootDomain = process.env.NEXT_PUBLIC_ROOT || "karsilo.com";
         const protocol = rootDomain.includes("localhost") ? "http://" : "https://";
         return `${protocol}${subdomain}.${rootDomain}`;  
     };

@@ -52,7 +52,7 @@ export function AppSidebar() {
                         >
                             <a href="#">
                                 <Store className="h-5 w-5" />
-                                <span className="text-base font-semibold">{loading ? "...": (organisation?.name ?? session?.user.firstname)}</span>
+                                <span className="text-base font-semibold">{loading ? "..." : (organisation?.name ?? session?.user.firstname)}</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>

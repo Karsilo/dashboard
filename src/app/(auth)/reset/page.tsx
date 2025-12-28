@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Salkaro | Reset",
+    title: "Karsilo | Reset",
     description: "Reset password",
     robots: {
         index: false,

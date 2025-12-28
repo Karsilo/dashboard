@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: "Salkaro | Login",
+    title: "Karsilo | Login",
     description: "Login",
     robots: {
         index: false,
