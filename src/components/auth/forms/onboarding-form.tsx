@@ -11,6 +11,7 @@ import { Label } from "../../ui/label";
 import { updateOnboarding } from "@/services/firebase/update";
 import { Loader2Icon } from "lucide-react";
 import { joinOrganisationAdmin } from "@/services/firebase/admin-update";
+import { sendWelcomeEmail } from "@/services/pulse/send-welcome-email";
 
 const OnboardingForm = () => {
     const { data: session, status } = useSession();
@@ -63,6 +64,19 @@ const OnboardingForm = () => {
                     const { error } = await joinOrganisationAdmin({ code: joinCode.trim(), uid: session?.user.id as string, firstname, lastname })
                     if (error) throw error;
                     toast.success("Joined organisation successfully!")
+                }
+
+                // Send welcome email via Pulse API
+                if (session?.user?.email) {
+                    const welcomeEmailResult = await sendWelcomeEmail({
+                        customerEmail: session.user.email,
+                        customerName: firstname,
+                    });
+
+                    if (!welcomeEmailResult.success) {
+                        console.error('Failed to send welcome email:', welcomeEmailResult.error);
+                        // Don't block onboarding if email fails, just log it
+                    }
                 }
 
                 router.push(`/preparing`);

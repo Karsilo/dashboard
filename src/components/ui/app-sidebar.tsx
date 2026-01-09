@@ -21,18 +21,18 @@ import { useOrganisation } from "@/hooks/useOrganisation";
 
 // Menu items
 const items = [
-    { title: "Dashboard", url: "/dashboard", icon: Home },
-    { title: "Courses", url: "/courses", icon: GraduationCap },
-    { title: "Practice Questions", url: "/practice-questions", icon: Brain },
+    { title: "Dashboard", url: "dashboard", icon: Home },
+    { title: "Courses", url: "courses", icon: GraduationCap },
+    { title: "Practice Questions", url: "practice-questions", icon: Brain },
 ]
 
 const toolItems = [
-    { title: "Bibliography Creator", url: "/bibliography-creator", icon: BookOpen },
-    { title: "File Compressor", url: "/file-compressor", icon: FileDown },
+    { title: "Bibliography Creator", url: "bibliography-creator", icon: BookOpen },
+    { title: "File Compressor", url: "file-compressor", icon: FileDown },
 ]
 
 const footerItems = [
-    { title: "Settings", url: "/settings", icon: Settings },
+    { title: "Settings", url: "settings", icon: Settings },
 ]
 
 // Sidebar component with inset variant
@@ -67,7 +67,7 @@ export function AppSidebar() {
                             {items.map(item => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url} className="flex items-center space-x-2">
+                                        <a href={`/${item.url}`} className="flex items-center space-x-2">
                                             <item.icon />
                                             <span>{item.title}</span>
                                         </a>
